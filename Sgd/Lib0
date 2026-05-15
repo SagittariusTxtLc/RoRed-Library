@@ -329,7 +329,7 @@ end
 		updateCanvas()
 	end
 
-	function Win:AddButton(cfg)
+		function Win:AddButton(cfg)
 		local text     = cfg.text or "Button"
 		local flag     = cfg.flag
 		local callback = cfg.callback
@@ -341,22 +341,14 @@ end
 		btn.Font             = Enum.Font.GothamBlack
 		btn.TextSize         = 16
 		btn.LayoutOrder      = nxt()
-		btn.TextXAlignment   = Enum.TextXAlignment.Left
+		btn.TextXAlignment   = Enum.TextXAlignment.Center -- Changed to Center
 		btn.Parent           = scroll
 		_style(btn)
 		local bp = Instance.new("UIPadding")
 		bp.PaddingLeft  = UDim.new(0,10)
-		bp.PaddingRight = UDim.new(0,30)
+		bp.PaddingRight = UDim.new(0,10) -- Adjusted padding for centering
 		bp.Parent       = btn
-		local arr = Instance.new("ImageLabel")
-		arr.Size               = UDim2.new(0,20,0,20)
-		arr.AnchorPoint        = Vector2.new(1,0.5)
-		arr.Position           = UDim2.new(1,12,0.5,0)
-		arr.ZIndex             = btn.ZIndex + 1
-		arr.BackgroundTransparency = 1
-		arr.Image              = "rbxthumb://type=Asset&id=78012821883673&w=420&h=420"
-		arr.ImageColor3        = Color3.fromRGB(200,200,200)
-		arr.Parent             = btn
+
 		btn.MouseButton1Click:Connect(function()
 			_tween(btn, 0.2, { BackgroundColor3 = Color3.fromRGB(255, 65, 65) })
 			task.delay(0.1, function()
@@ -689,7 +681,7 @@ end
 		local _fOrder = 0
 		local function fnxt() _fOrder += 1; return _fOrder end
 
-		function Folder:AddButton(cfg)
+		    function Folder:AddButton(cfg)
 			local text     = cfg.text or "Button"
 			local flag     = cfg.flag
 			local callback = cfg.callback
@@ -701,22 +693,14 @@ end
 			btn.Font             = Enum.Font.GothamBlack
 			btn.TextSize         = 16
 			btn.LayoutOrder      = fnxt()
-			btn.TextXAlignment   = Enum.TextXAlignment.Left
+			btn.TextXAlignment   = Enum.TextXAlignment.Center -- Changed to Center
 			btn.Parent           = content
 			_style(btn)
 			local bp = Instance.new("UIPadding")
 			bp.PaddingLeft  = UDim.new(0,10)
-			bp.PaddingRight = UDim.new(0,30)
+			bp.PaddingRight = UDim.new(0,10) -- Adjusted padding for centering
 			bp.Parent       = btn
-			local arr = Instance.new("ImageLabel")
-			arr.Size               = UDim2.new(0,16,0,16)
-			arr.AnchorPoint        = Vector2.new(1,0.5)
-			arr.Position           = UDim2.new(1,12,0.5,0)
-			arr.ZIndex             = btn.ZIndex + 1
-			arr.BackgroundTransparency = 1
-			arr.Image              = "rbxthumb://type=Asset&id=13306021335&w=420&h=420"
-			arr.ImageColor3        = Color3.fromRGB(255,255,255)
-			arr.Parent             = btn
+
 			btn.MouseButton1Click:Connect(function()
 				_tween(btn, 0.2, { BackgroundColor3 = Color3.fromRGB(255, 65, 65) })
 				task.delay(0.1, function()
@@ -901,7 +885,7 @@ end
 			local flag       = cfg.flag
 			local options    = cfg.values or {}
 			local callback   = cfg.callback
-			local selected   = "Select Option"
+			local selected   = "=== Select Option ==="
 			local dropBtn = Instance.new("TextButton")
 			dropBtn.Size             = UDim2.new(1,0,0,46)
 			dropBtn.BackgroundColor3 = Color3.fromRGB(20,20,20)
